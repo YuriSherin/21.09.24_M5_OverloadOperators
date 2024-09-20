@@ -23,27 +23,45 @@ class House:
 
     def __eq__(self, other):
         """Метод возвращает True, если два сравниваемых объекта равны между собой"""
-        return self.number_of_floors == other.number_of_floors
+        if not isinstance(other, (int, House)):
+            raise TypeError("Операнд справа должен иметь тип int или House")
+        value = other if isinstance(other, int) else other.number_of_floors
+        return self.number_of_floors == value
 
     def __lt__(self, other):
         """Метод возвращает True, если первый объекта меньше второго объекта"""
-        return self.number_of_floors < other.number_of_floors
+        if not isinstance(other, (int, House)):
+            raise TypeError("Операнд справа должен иметь тип int или House")
+        value = other if isinstance(other, int) else other.number_of_floors
+        return self.number_of_floors < value
 
     def __le__(self, other):
         """Метод возвращает True, если первый объекта меньше либо равен второму объекту"""
-        return self.number_of_floors <= other.number_of_floors
+        if not isinstance(other, (int, House)):
+            raise TypeError("Операнд справа должен иметь тип int или House")
+        value = other if isinstance(other, int) else other.number_of_floors
+        return self.number_of_floors <= value
 
     def __gt__(self, other):
         """Метод возвращает True, если первый объекта больше второго объекта"""
-        return self.number_of_floors > other.number_of_floors
+        if not isinstance(other, (int, House)):
+            raise TypeError("Операнд справа должен иметь тип int или House")
+        value = other if isinstance(other, int) else other.number_of_floors
+        return self.number_of_floors > value
 
     def __ge__(self, other):
         """Метод возвращает True, если первый объекта больше либо равен второму объекту"""
-        return self.number_of_floors >= other.number_of_floors
+        if not isinstance(other, (int, House)):
+            raise TypeError("Операнд справа должен иметь тип int или House")
+        value = other if isinstance(other, int) else other.number_of_floors
+        return self.number_of_floors >= value
 
     def __ne__(self, other):
         """Метод возвращает True, если первый объекта не равен второму объекту"""
-        return self.number_of_floors != other.number_of_floors
+        if not isinstance(other, (int, House)):
+            raise TypeError("Операнд справа должен иметь тип int или House")
+        value = other if isinstance(other, int) else other.number_of_floors
+        return self.number_of_floors != value
 
     def __add__(self, value):
         """Метод увеличивает количество этажей на величину 'value',
@@ -66,6 +84,7 @@ class House:
             return self
 
 
+#Пример выполняемого кода:
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
 
